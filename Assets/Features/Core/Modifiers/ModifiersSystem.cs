@@ -38,7 +38,7 @@ namespace Features.Core.Modifiers
                 {
                     groupByItem[m.itemId] = m with
                     {
-                        chance = groupByItem[m.itemId].chance * m.chance,
+                        chance = groupByItem[m.itemId].chance + m.chance,
                         count = Math.Max(groupByItem[m.itemId].count, m.count)
                     };
                 }
