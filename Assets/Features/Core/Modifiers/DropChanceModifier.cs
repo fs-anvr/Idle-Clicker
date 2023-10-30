@@ -1,9 +1,13 @@
-﻿namespace Features.Core.Modifiers
+﻿using System;
+using UnityEngine.Serialization;
+
+namespace Features.Core.Modifiers
 {
-    public struct DropChanceModifier
+    [Serializable]
+    public record DropChanceModifier
     {
-        public int ItemId;
-        public int Count;
-        public double Chance;
+        public int itemId;
+        public int count;
+        public double chance;
     }
 }

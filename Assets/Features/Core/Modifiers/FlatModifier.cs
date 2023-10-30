@@ -1,6 +1,6 @@
 ﻿namespace Features.Core.Modifiers
 {
-    public struct FlatModifier
+    public record FlatModifier
     {
         public int Value;
         public ModifierType Type;

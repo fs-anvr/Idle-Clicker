@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Features.Core.Modifiers
@@ -24,18 +25,22 @@ namespace Features.Core.Modifiers
             return coefficient;
         }
 
-        public static Dictionary<int, double> CalculateDropChances(List<DropChanceModifier> modifiers)
+        public static Dictionary<int, DropChanceModifier> CalculateDropChances(List<DropChanceModifier> modifiers)
         {
-            var groupByItem = new Dictionary<int, double>();
+            var groupByItem = new Dictionary<int, DropChanceModifier>();
             foreach (var m in modifiers)
             {
-                if (!groupByItem.ContainsKey(m.ItemId))
+                if (!groupByItem.ContainsKey(m.itemId))
                 {
-                    groupByItem[m.ItemId] = m.Chance;
+                    groupByItem[m.itemId] = m;
                 }
                 else
                 {
-                    groupByItem[m.ItemId] *= m.Chance;
+                    groupByItem[m.itemId] = m with
+                    {
+                        chance = groupByItem[m.itemId].chance * m.chance,
+                        count = Math.Max(groupByItem[m.itemId].count, m.count)
+                    };
                 }
             }
 
