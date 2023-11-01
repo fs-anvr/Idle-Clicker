@@ -1,4 +1,5 @@
 ﻿using Features.Core.Modifiers;
+using Features.Core.Ore;
 using Features.MVC;
 using UnityEngine;
 
@@ -14,24 +15,28 @@ namespace Features.Core.Damage
         {
             var damageData = new DamageData
             {
-                enemyHealth = new HealthData {health = 100},
-                CurrentCursor = new Cursor.Cursor
+                currentOreVeinHealth = 100,
+                currentCursor = new Cursor.Cursor
                 {
                     Damage = new FlatModifier
                     {
                         Value = 5,
                         Type = ModifierType.Damage
                     },
-                    CriticalDamage = new CoefficientModifier
+                    criticalDamage = new CoefficientModifier
                     {
                         value = 2.0,
                         type = ModifierType.CriticalDamage
                     },
-                    CriticalChance = new CoefficientModifier
+                    criticalChance = new CoefficientModifier
                     {
                         value = 0.25,
                         type = ModifierType.CriticalChance
                     }
+                },
+                oreVein = new OreVein
+                {
+                    
                 }
             };
             _model = new DamageModel();

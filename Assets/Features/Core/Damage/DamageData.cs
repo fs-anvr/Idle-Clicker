@@ -1,17 +1,14 @@
 ﻿using System;
+using Features.Core.Ore;
+using UnityEngine.Serialization;
 
 namespace Features.Core.Damage
 {
     [Serializable]
     public record DamageData()
     {
-        public HealthData enemyHealth;
-        public Cursor.Cursor CurrentCursor;
-    }
-    
-    [Serializable]
-    public record HealthData()
-    {
-        public int health;
+        public Cursor.Cursor currentCursor;
+        public OreVein oreVein;
+        public int currentOreVeinHealth;
     }
 }

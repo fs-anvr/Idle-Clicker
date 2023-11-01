@@ -16,20 +16,20 @@ namespace Features.Core.Damage
 
         private static double CalculateDamage(DamageData data)
         {
-            var criticalChance = GetCriticalChance(data.CurrentCursor);
+            var criticalChance = GetCriticalChance(data.currentCursor);
             var damage =
                 Roll(criticalChance) ?
-                    GetCriticalDamage(data.CurrentCursor) :
-                    GetDamage(data.CurrentCursor);
+                    GetCriticalDamage(data.currentCursor) :
+                    GetDamage(data.currentCursor);
 
             return damage;
         }
 
         private static DamageData ProcessHealth(DamageData data, double damage)
         {
-            var enemyHealth = data.enemyHealth.health;
-            var newHealthData = data.enemyHealth with { health = enemyHealth - (int)damage };
-            return data with { enemyHealth = newHealthData };
+            var enemyHealth = data.currentOreVeinHealth; // * levelOreFlatHealth
+            var newHealthData = data with { currentOreVeinHealth = enemyHealth - (int)damage };
+            return newHealthData;
         }
         
         private static int GetDamage(Cursor.Cursor cursor)

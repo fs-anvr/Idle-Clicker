@@ -7,6 +7,7 @@ namespace Features.Core.Ore
     [Serializable]
     public record OreVein : IModifierCollectable
     {
+        public int id;
         public int levelForExploration;
         public CoefficientModifier explorationChance;
         public CoefficientModifier healthCoefficient;

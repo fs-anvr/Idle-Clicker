@@ -9,7 +9,7 @@ namespace Features.Core.Damage
         [SerializeField] private Button button;
         protected override void UpdateView(DamageData data)
         {
-            Debug.Log("Текущее здоровье цели: " + data.enemyHealth);
+            Debug.Log("Текущее здоровье цели: " + data.currentOreVeinHealth);
         }
         
         private void Awake()

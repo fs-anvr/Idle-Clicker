@@ -1,15 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Features.Core.Modifiers;
+using UnityEngine.Serialization;
 
 namespace Features.Core.Cursor
 {
+    [Serializable]
     public class Cursor : BaseCursor
     {
-        public int Id;
+        public int id;
         
         public FlatModifier Damage;
-        public CoefficientModifier CriticalDamage;
-        public CoefficientModifier CriticalChance;
+        public CoefficientModifier criticalDamage;
+        public CoefficientModifier criticalChance;
 
         public override List<DropChanceModifier> CollectDropChances()
             => new();
@@ -23,8 +26,8 @@ namespace Features.Core.Cursor
         public override List<CoefficientModifier> CollectCoefficients()
             => new()
             {
-                CriticalDamage,
-                CriticalChance
+                criticalDamage,
+                criticalChance
             };
     }
 }
