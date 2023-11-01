@@ -24,13 +24,13 @@ namespace Features.Core.Damage
                     },
                     CriticalDamage = new CoefficientModifier
                     {
-                        Value = 2.0,
-                        Type = ModifierType.CriticalDamage
+                        value = 2.0,
+                        type = ModifierType.CriticalDamage
                     },
                     CriticalChance = new CoefficientModifier
                     {
-                        Value = 0.25,
-                        Type = ModifierType.CriticalChance
+                        value = 0.25,
+                        type = ModifierType.CriticalChance
                     }
                 }
             };

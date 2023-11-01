@@ -14,8 +14,8 @@ namespace Features.Core.Modifiers
         public static double CalculateCoefficient(List<CoefficientModifier> modifiers, ModifierType type)
         {
             var coefficient = modifiers
-                .Where(m => m.Type == type)
-                .Sum(m => m.Value);
+                .Where(m => m.type == type)
+                .Sum(m => m.value);
             
             if (IsNegativeCoefficient(coefficient))
             {

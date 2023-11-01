@@ -8,6 +8,7 @@ namespace Features.Core.Modifiers
         Damage,
         Health,
         CriticalDamage,
-        CriticalChance
+        CriticalChance,
+        ExplorationChance
     }
 }

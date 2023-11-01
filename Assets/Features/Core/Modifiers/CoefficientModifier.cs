@@ -1,8 +1,11 @@
-﻿namespace Features.Core.Modifiers
+﻿using System;
+
+namespace Features.Core.Modifiers
 {
+    [Serializable]
     public record CoefficientModifier
     {
-        public double Value;
-        public ModifierType Type;
+        public double value;
+        public ModifierType type;
     }
 }
